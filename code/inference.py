@@ -36,4 +36,22 @@ with mp.solutions.holistic.Holistic(min_detection_confidence=0.5, min_tracking_c
             if res[np.argmax(res)] > threshold:
                 if len(sentence) > 0:
                     if actions[np.argmax(res)] != sentence[-1]:
-                        sentence.append(actions[np
+                        sentence.append(actions[np.argmax(res)])
+                else:
+                    sentence.append(actions[np.argmax(res)])
+
+            if len(sentence) > 5:
+                sentence = sentence[-5:]
+
+            image = prob_viz(res, actions, image, colors)
+
+        cv2.rectangle(image, (0, 0), (640, 40), (245, 117, 16), -1)
+        cv2.putText(image, ' '.join(sentence), (3, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
+
+        cv2.imshow('OpenCV Feed', image)
+
+        if cv2.waitKey(10) & 0xFF == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
