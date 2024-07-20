@@ -25,7 +25,7 @@ This project aims to harness the power of machine vision and deep learning to cr
 
 ## Components
 - **Deep Learning Framework:** TensorFlow/Keras
-- **CNN Architecture:** Custom or pre-trained models like VGG16, ResNet50, etc.
+- **CNN Architecture:** Custom or pre-trained  models like VGG16, ResNet50, etc.
 - **Hardware:** GPU for training, CPU for deployment
 - **Dataset:** Custom or publicly available datasets like ImageNet, CIFAR-10, etc.
 
